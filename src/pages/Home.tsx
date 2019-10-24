@@ -4,7 +4,7 @@ import axios from 'axios';
 import React from 'react';
 
 
-const URL = `http://api.icndb.com/jokes/random/30`;
+const URL = `http://api.icndb.com/jokes/`;
 
 // fetch all articles
 const fetchJokes = () => {
