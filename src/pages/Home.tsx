@@ -1,13 +1,13 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonList, IonItem } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonList, IonItem, IonCard } from '@ionic/react';
 import {FC, useState, useEffect } from 'react';
 import axios from 'axios';
 import React from 'react';
 
-
 const URL = `http://api.icndb.com/jokes/`;
 
+
 // fetch all articles
-const fetchJokes = () => {
+const fetchJokes  = () => {
   return axios({
     url: URL,
     method: 'get'
@@ -23,14 +23,14 @@ const Home: FC = () => {
   // const items: any[] = [];
 
   useEffect(() => {
-    fetchJokes().then(data => setJokes(data.value));
+    fetchJokes ().then(data => setJokes(data.value));
   }, []);
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Chuck Norris Jokes</IonTitle>
+        <IonTitle>Chuck Norris Jokes</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
@@ -38,9 +38,12 @@ const Home: FC = () => {
           {
             jokes.map((a, index) => {
               return(
-                <IonItem key={index}>
+                <IonCard key={index}>
+                <IonItem>
                   {a['joke']}
+                  <br/> 
                 </IonItem>
+                </IonCard>
               )
             })
           }
