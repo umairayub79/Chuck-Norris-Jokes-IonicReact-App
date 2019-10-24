@@ -1,0 +1,7 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "Chuck Norris Jokes",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build"
+}

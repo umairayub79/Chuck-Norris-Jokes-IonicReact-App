@@ -1,5 +1,7 @@
 {
   "name": "cat-facts",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }
