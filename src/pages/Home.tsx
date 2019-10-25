@@ -1,7 +1,8 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonList, IonItem, IonCard, IonLoading, IonSpinner } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonList, IonItem, IonCard, IonSpinner, IonToast, IonAlert } from '@ionic/react';
 import {FC, useState, useEffect } from 'react';
 import useAxios from 'axios-hooks'
 import React from 'react';
+import {Plugins} from '@capacitor/core';
 import "./Loader.css";
 
 
@@ -10,6 +11,15 @@ const URL = `https://api.icndb.com/jokes/`;
 const Home: FC = () => {
 
  
+  const {Clipboard} = Plugins;
+
+  function copyToClipboard(joke : string) {
+    Clipboard.write({
+      string : joke
+    });
+    
+    
+  }
 
   //fetch all jokes
 const [{ data, loading, error }, fetchJokes] = useAxios(
@@ -39,14 +49,14 @@ const [{ data, loading, error }, fetchJokes] = useAxios(
           <div className="loader">
             <IonSpinner name="crescent"/>
           </div>
-       
-        ) : (
+       ) : (
           jokes.map((a, index) => {
             return(
               <IonCard key={index}>
               <IonItem>
                 {a['joke'] }
-              </IonItem>
+                <IonButton onClick={() => copyToClipboard(a['joke'])} color="primary" slot="end">Copy</IonButton>
+                </IonItem>
               </IonCard>
             )
           })
@@ -60,5 +70,6 @@ const [{ data, loading, error }, fetchJokes] = useAxios(
     </IonPage>
   );
 };
+
 
 export default Home;
