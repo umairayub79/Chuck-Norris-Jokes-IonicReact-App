@@ -2,7 +2,6 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonLis
 import {FC, useState, useEffect } from 'react';
 import useAxios from 'axios-hooks'
 import React from 'react';
-npm 
 import "./Loader.css";
 
 
