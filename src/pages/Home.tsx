@@ -2,12 +2,11 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonLis
 import {FC, useState, useEffect } from 'react';
 import useAxios from 'axios-hooks'
 import React from 'react';
-import Spinner from 'react-bootstrap/Spinner'
-
+npm 
 import "./Loader.css";
 
 
-const URL = `http://api.icndb.com/jokes/`;
+const URL = `https://api.icndb.com/jokes/`;
 
 const Home: FC = () => {
 
